@@ -3,6 +3,11 @@
  * https://jestjs.io/docs/configuration
  */
 
+// Workaround for Jest mocking the process object
+// See https://github.com/facebook/jest/issues/5620#issuecomment-998716759
+const actualProcess = process
+process.actual = () => actualProcess
+
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
