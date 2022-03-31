@@ -5,8 +5,8 @@
 
 // Workaround for Jest mocking the process object
 // See https://github.com/facebook/jest/issues/5620#issuecomment-998716759
-const actualProcess = process
-process.actual = () => actualProcess
+const actualProcess = process;
+process.actual = () => actualProcess;
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
@@ -130,7 +130,7 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles: ["./setup.js"],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
@@ -142,7 +142,8 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "<rootDir>/jest.env.js",
+  // testEnvironment: "<rootDir>/jest.env.js",
+  testEnvironment: "jest-environment-jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
